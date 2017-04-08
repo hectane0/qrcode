@@ -1,0 +1,1 @@
+QR Code is registered trademark of DENSO WAVE INCORPORATED in Japan and in other countries.

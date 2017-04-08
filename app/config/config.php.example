@@ -1,0 +1,30 @@
+<?php
+
+defined('APP_PATH') || define('APP_PATH', realpath('.'));
+
+return new \Phalcon\Config([
+    'database' => [
+        'adapter'     => 'Mysql',
+        'host'        => 'localhost',
+        'username'    => '',
+        'password'    => '',
+        'dbname'      => '',
+        'charset'     => 'utf8',
+    ],
+    'application' => [
+        'controllersDir' => APP_PATH . '/app/controllers/',
+        'migrationsDir'  => APP_PATH . '/app/migrations/',
+        'viewsDir'       => APP_PATH . '/app/views/',
+        'pluginsDir'     => APP_PATH . '/app/plugins/',
+        'libraryDir'     => APP_PATH . '/app/library/',
+        'cacheDir'       => APP_PATH . '/app/cache/',
+        'formsDir'       => APP_PATH . '/app/forms/',
+        'modelsDir'      => APP_PATH . '/app/models/',
+        'validatorsDir'  => APP_PATH . '/app/validators',
+        'baseUri'        => '/',
+    ],
+    'googleUrlShortener' => [
+        'key' => 'key'
+    ]
+
+]);

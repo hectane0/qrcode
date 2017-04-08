@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -20px;
+}
+
+.site-footer, .page-wrap:after {
+    height: 20px;
+}
+
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer {
+    background: #222;
+    color: white;
+}
+
+#main-navbar {
+    border-radius: 0;
+    margin-bottom: 10px;
+}
+
+.container {
+    min-height:100%;
+}
+
+.main-row {
+    min-height: 100%;
+}
+
+.left-box {
+    height: 100%;
+    padding: 0;
+}
+
+.wrath-content-box span {
+    color:#101010;
+    font-family: sans-serif;
+    font-size:18px;
+}
+
+.col-centered {
+    float: none;
+    margin: 50px auto 0;
+}
+.wrath-content-box {
+    padding: 15px;
+}
+
+.error {
+    /*text-align: center;*/
+    color: red;
+}
+
+
+
+ul.left-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+.left-menu li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.left-menu li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+#code-select {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+#code-select li {
+    display: table-cell;
+    padding: 0 10px 0 10px;
+}
+
+#code-select li a {
+    text-decoration: none;
+    color: #000;
+}
+
+#code-select li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+#static-qr-form {
+    padding-top: 20px;
+}
+
+.suggestion {
+    padding-left: 5px;
+}
