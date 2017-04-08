@@ -1,10 +1,8 @@
 $(document).ready(function(){
 
     $('#check-occupied').click(function () {
-
-
         var url = $("input[name='url']").val();
-        console.log(url);
+        $("#suggests").hide();
 
         if(!url) {
             alert("empty");
@@ -15,7 +13,6 @@ $(document).ready(function(){
         if (!firstTry.val()) {
             firstTry.val(url);
         }
-
 
         $.ajax({
             type: "POST",

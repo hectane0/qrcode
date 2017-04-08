@@ -4,6 +4,7 @@ namespace QrCode\Models\DynamicCode;
 
 use Phalcon\Http\Request\FileInterface;
 use Phalcon\Mvc\Model;
+use QrCode\Models\NameTry\NameTry;
 use QrCode\Models\QR\QR;
 use QrCode\Models\User\User;
 
@@ -52,7 +53,12 @@ class DynamicCode extends Model
         }
 
         $qr = new QR($this->public_url, $post['fill'], $post['background'], $path);
-        $this->filename = $qr->save();
+        $this->filename = trim($qr->save());
+
+        $try = new NameTry();
+        $try->first = $post['firstTry'];
+        $try->last = $post['url'];
+        $try->save();
 
         $this->save();
         return $this->id;
