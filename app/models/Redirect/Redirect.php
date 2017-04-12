@@ -2,10 +2,11 @@
 
 namespace QrCode\Models\Redirect;
 
+use Phalcon\Mvc\Model;
 use QrCode\Models\DynamicCode\DynamicCode;
 
 
-class Redirect extends \Phalcon\Mvc\Model
+class Redirect extends Model
 {
 
     public $id;
@@ -39,5 +40,4 @@ class Redirect extends \Phalcon\Mvc\Model
 
         $this->save();
     }
-
 }

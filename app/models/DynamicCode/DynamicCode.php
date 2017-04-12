@@ -7,6 +7,7 @@ use Phalcon\Mvc\Model;
 use QrCode\Models\NameTry\NameTry;
 use QrCode\Models\QR\QR;
 use QrCode\Models\User\User;
+use Phalcon\Di;
 
 class DynamicCode extends Model
 {
@@ -18,6 +19,7 @@ class DynamicCode extends Model
     public $user_id;
     public $filename;
     public $created_at;
+    private $visitCount;
 
 
     public function getSource()
@@ -55,12 +57,25 @@ class DynamicCode extends Model
         $qr = new QR($this->public_url, $post['fill'], $post['background'], $path);
         $this->filename = trim($qr->save());
 
-        $try = new NameTry();
-        $try->first = $post['firstTry'];
-        $try->last = $post['url'];
-        $try->save();
+        if (!empty($post['firstTry'])) {
+            $try = new NameTry();
+            $try->first = $post['firstTry'];
+            $try->last = $post['url'];
+            $try->save();
+        }
 
         $this->save();
         return $this->id;
+    }
+
+    public function getVisitCount()
+    {
+        if (empty($this->visitCount)) {
+
+            $count = Di::getDefault()->getShared('db')->fetchOne("SELECT COUNT(*) AS total FROM redirect WHERE dynamic_code_id = $this->id");
+            $this->visitCount = $count['total'];
+        }
+
+        return $this->visitCount;
     }
 }

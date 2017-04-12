@@ -76,6 +76,17 @@ $router->add("/panel/show/([0-9]+)", [
     'id' => 1,
 ])->setName("panel-show");
 
+$router->add("/panel/stats", [
+    'controller' => 'stats',
+    'action' => 'index',
+])->setName("stats");
+
+$router->add("/panel/stats/([0-9]+)", [
+    'controller' => 'stats',
+    'action' => 'details',
+    'id' => 1,
+])->setName("stats-details");
+
 $router->add("/to/([^/;]+)", [
     'controller' => 'redirect',
     'action' => 'to',
