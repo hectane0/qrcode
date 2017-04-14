@@ -21,6 +21,7 @@ return new \Phalcon\Config([
         'formsDir'       => APP_PATH . '/app/forms/',
         'modelsDir'      => APP_PATH . '/app/models/',
         'validatorsDir'  => APP_PATH . '/app/validators',
+        'servicesDir'    => APP_PATH . '/app/services',
         'baseUri'        => '/',
     ],
     'googleUrlShortener' => [
