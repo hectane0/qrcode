@@ -52,7 +52,7 @@ class Redirect extends Model
     public static function getLastVisit()
     {
         $userId = User::getCurrentUseId();
-        $sql = "SELECT a.id, a.date, b.name, b.user_id FROM qrcode.redirect AS a INNER JOIN dynamic_code AS b ON a.dynamic_code_id = b.id WHERE b.user_id = $userId ORDER BY a.date desc LIMIT 1";
+        $sql = "SELECT a.id, a.date, b.name, b.user_id FROM redirect AS a INNER JOIN dynamic_code AS b ON a.dynamic_code_id = b.id WHERE b.user_id = $userId ORDER BY a.date desc LIMIT 1";
         $result = $count = Di::getDefault()->getShared('db')->fetchOne($sql);
 
         return $result;
