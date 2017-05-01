@@ -1,7 +1,7 @@
 {% extends "index.volt" %}
 
 {% block leftBox %}
-    {{ partial("menu/userLeft") }}
+    {{ partial("partials/menu/userLeft") }}
 {% endblock %}
 
 {% block contentBox %}

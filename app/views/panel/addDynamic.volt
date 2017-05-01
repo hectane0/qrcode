@@ -1,5 +1,5 @@
 <div>
-    {{ partial("menu/codeSelect") }}
+    {{ partial("partials/menu/codeSelect") }}
 </div>
 
 <div>

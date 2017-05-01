@@ -15,7 +15,6 @@ class StatsController extends ControllerBase
     public function indexAction()
     {
         $ranking = new Ranking();
-        $ranking->getArray();
 
         $this->view->setVar('ranking', $ranking->getArray());
     }
