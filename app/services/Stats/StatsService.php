@@ -21,4 +21,20 @@ class StatsService
 
         return $result;
     }
+
+    public function getPlatformStatsForCode($codeId)
+    {
+        $sql = "SELECT platform, COUNT(*) AS count FROM qrcode.redirect WHERE dynamic_code_id = $codeId GROUP BY platform";
+        $result = Di::getDefault()->getShared('db')->fetchAll($sql);
+
+        return $result;
+    }
+
+    public function getBrowserStatsForCode($codeId)
+    {
+        $sql = "SELECT browser, COUNT(*) AS count FROM qrcode.redirect WHERE dynamic_code_id = $codeId GROUP BY browser";
+        $result = Di::getDefault()->getShared('db')->fetchAll($sql);
+
+        return $result;
+    }
 }

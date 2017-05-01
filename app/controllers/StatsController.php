@@ -35,7 +35,12 @@ class StatsController extends ControllerBase
             'order' => 'date DESC',
             'limit' => 5,
         ]);
+        $platforms = $this->getDI()->get('statsService')->getPlatformStatsForCode($codeId);
+        $browsers = $this->getDI()->get('statsService')->getBrowserStatsForCode($codeId);
 
+
+        $this->view->setVar('platforms', $platforms);
+        $this->view->setVar('browsers', $browsers);
         $this->view->setVar('lasts', $lasts);
         $this->view->setVar('code', $code);
         $this->view->setVar('stats', $stats);

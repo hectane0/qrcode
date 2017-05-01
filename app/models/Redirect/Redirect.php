@@ -15,6 +15,8 @@ class Redirect extends Model
     public $dynamic_code_id;
     public $date;
     public $useragent;
+    public $platform;
+    public $browser;
 
 
     public function getSource()
@@ -39,6 +41,10 @@ class Redirect extends Model
         $this->dynamic_code_id = $dynamicCode->id;
         $this->date = date('Y-m-d H:i:s');
         $this->useragent = $_SERVER['HTTP_USER_AGENT'];
+
+        $ua = parse_user_agent();
+        $this->platform = $ua['platform'];
+        $this->browser = $ua['browser'];
 
         $this->save();
     }

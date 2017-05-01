@@ -8,6 +8,12 @@
     {% else %}
         <div id="chart_div" style="width: 700px; height: 240px;"></div>
 
+        <div class="col-sm-6">
+            <div id="platforms_chart" style="padding-top: 20px"></div>
+        </div>
+        <div class="col-sm-6">
+            <div id="browser_chart" style="padding-top: 20px"></div>
+        </div>
 
         <div>Ostatnie skany:</div>
         <div>
@@ -30,14 +36,9 @@
         </div>
 
         <script>
+            var platforms = {{ platforms|json_encode }};
+            var browsers = {{ browsers|json_encode }};
             var stats = {{ stats|json_encode }};
         </script>
     {% endif %}
-{% endblock %}
-
-
-
-
-{% block rightBox %}
-    Dupa
 {% endblock %}
