@@ -8,6 +8,11 @@ use QrCode\Models\User\User;
 
 class PanelController extends ControllerBase
 {
+    public function beforeExecuteRoute()
+    {
+        if (!$this->redirectIfNotLoged()) return false;
+        return true;
+    }
 
     public function indexAction()
     {

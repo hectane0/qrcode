@@ -11,7 +11,6 @@ class AjaxController extends ControllerBase
         if (!$this->request->isAjax()) {
             return $this->response->redirect('error/show404');
         }
-
         return true;
     }
 

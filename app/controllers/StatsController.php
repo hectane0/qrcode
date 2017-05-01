@@ -6,6 +6,12 @@ use QrCode\Models\Redirect\Redirect;
 
 class StatsController extends ControllerBase
 {
+    public function beforeExecuteRoute()
+    {
+        if (!$this->redirectIfNotLoged()) return false;
+        return true;
+    }
+
     public function initialize()
     {
         parent::initialize();

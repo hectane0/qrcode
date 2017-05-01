@@ -40,6 +40,8 @@ class ControllerBase extends Controller
     {
         if (!User::isLogged()) {
             $this->redirectToRoute('login');
+            return false;
         }
+        return true;
     }
 }
