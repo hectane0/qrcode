@@ -1,9 +1,13 @@
-<div>
-    Ranking:
-</div>
+{% extends "layouts/stats.volt" %}
 
-<div>
-    {% for rank in ranking %}
-    <p>{{ loop.index }}. <a href="{{ url(['for': 'stats-details', 'id': rank['id']]) }}">{{ rank['name'] }}</a> - {{ rank['total'] }}</p>
-    {% endfor %}
-</div>
+{% block contentBox %}
+    <div>
+        Ranking:
+    </div>
+
+    <div>
+        {% for rank in ranking %}
+            <p>{{ loop.index }}. <a href="{{ url(['for': 'stats-details', 'id': rank['id']]) }}">{{ rank['name'] }}</a> - {{ rank['total'] }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,7 +1,11 @@
-<div>
-    Ostatni skan: {{ last['date'] }} ({{ last['name'] }})
-</div>
+{% extends "layouts/panel.volt" %}
 
-<div>
-    Najpopularniejszy kod: {{ popular['name'] }} ({{ popular['count'] }} skanów)
-</div>
+{% block contentBox %}
+    <div>
+        Ostatni skan: {{ last['date'] }} ({{ last['name'] }})
+    </div>
+
+    <div>
+        Najpopularniejszy kod: {{ popular['name'] }} ({{ popular['count'] }} skanów)
+    </div>
+{% endblock %}

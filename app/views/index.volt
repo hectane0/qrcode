@@ -35,7 +35,7 @@
                     {% endblock %}
                 </div>
                 <div class="col-sm-2">
-                    {% block RightBox %}
+                    {% block rightBox %}
                     {% endblock %}
                 </div>
             </div>

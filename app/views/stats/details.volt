@@ -1,34 +1,43 @@
-<h4>Kod dynamiczny: {{ code.name }}</h4>
+{% extends "layouts/stats.volt" %}
 
-{% if stats is empty %}
-    Nie odnotowano jeszcze skanów kodu. Statystyki nie są dostępne.
-{% else %}
-    <div id="chart_div" style="width: 700px; height: 240px;"></div>
+{% block contentBox %}
+    <h4>Kod dynamiczny: {{ code.name }}</h4>
+
+    {% if stats is empty %}
+        Nie odnotowano jeszcze skanów kodu. Statystyki nie są dostępne.
+    {% else %}
+        <div id="chart_div" style="width: 700px; height: 240px;"></div>
 
 
-    <div>Ostatnie skany:</div>
-    <div>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Czas</th>
-                <th>Useragent</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for last in lasts %}
+        <div>Ostatnie skany:</div>
+        <div>
+            <table class="table">
+                <thead>
                 <tr>
-                    <td>{{ last.date }}</td>
-                    <td title="{{ last.useragent }}">{{ last.useragent }}</td>
+                    <th>Czas</th>
+                    <th>Useragent</th>
                 </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                {% for last in lasts %}
+                    <tr>
+                        <td>{{ last.date }}</td>
+                        <td title="{{ last.useragent }}">{{ last.useragent }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
-    <script>
-        var stats = {{ stats|json_encode }};
-    </script>
-{% endif %}
+        <script>
+            var stats = {{ stats|json_encode }};
+        </script>
+    {% endif %}
+{% endblock %}
 
 
+
+
+{% block rightBox %}
+    Dupa
+{% endblock %}

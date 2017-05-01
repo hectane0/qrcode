@@ -37,7 +37,7 @@ $di->setShared('view', function () use ($config) {
     $view = new View();
 
     $view->setViewsDir($config->application->viewsDir);
-    $view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_LAYOUT);
+    $view->setRenderLevel(\Phalcon\Mvc\View::LEVEL_ACTION_VIEW);
 
     $view->registerEngines(array(
         '.volt' => function ($view, $di) use ($config) {
