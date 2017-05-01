@@ -22,7 +22,7 @@
         </fieldset>
 
         <fieldset>
-            <div><label for="url">Widoczny addres:</label></div> http://qr-get.in/to/
+            <div><label for="url">Widoczny addres:</label></div> www.{{ request.getServer("HTTP_HOST") }}/
             {{ qr.render("url", {"class": "", "placeholder": "  "}) }}
             {{ qr.render("firstTry", {"value": ""}) }}
             <input type="button" id="check-occupied" value="Sprawdź dostępność">

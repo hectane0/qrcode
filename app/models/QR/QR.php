@@ -69,7 +69,7 @@ class QR
             $args .= " -s";
         }
 
-        $cmd = "source $envDir/bin/activate; $envDir/bin/python $scriptsDir/qr-generate.py $args 2>&1";
+        $cmd = "source $envDir/bin/activate; $envDir/bin/python -W ignore $scriptsDir/qr-generate.py $args 2>&1";
 
         return $cmd;
     }
