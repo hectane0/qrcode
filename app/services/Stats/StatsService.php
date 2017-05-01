@@ -13,4 +13,12 @@ class StatsService
 
         return $stats;
     }
+
+    public function getMostPopularCodeForUser($userId)
+    {
+        $sql = "SELECT b.name, COUNT(*) as count FROM qrcode.redirect AS a INNER JOIN dynamic_code AS b ON a.dynamic_code_id = b.id WHERE b.user_id = $userId GROUP BY a.dynamic_code_id ORDER BY count desc LIMIT 1;";
+        $result = Di::getDefault()->getShared('db')->fetchOne($sql);
+
+        return $result;
+    }
 }

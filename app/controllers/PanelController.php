@@ -3,6 +3,7 @@
 use QrCode\Forms\QR\DynamicQRForm;
 use QrCode\Forms\QR\StaticQRForm;
 use QrCode\Models\DynamicCode\DynamicCode;
+use QrCode\Models\Redirect\Redirect;
 use QrCode\Models\User\User;
 
 class PanelController extends ControllerBase
@@ -10,6 +11,11 @@ class PanelController extends ControllerBase
 
     public function indexAction()
     {
+        $last = Redirect::getLastVisit();
+        $mostPopular = $this->getDI()->get('statsService')->getMostPopularCodeForUser(User::getCurrentUseId());
+
+        $this->view->setVar('last', $last);
+        $this->view->setVar('popular', $mostPopular);
     }
 
     public function addAction()

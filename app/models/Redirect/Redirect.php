@@ -4,6 +4,8 @@ namespace QrCode\Models\Redirect;
 
 use Phalcon\Mvc\Model;
 use QrCode\Models\DynamicCode\DynamicCode;
+use QrCode\Models\User\User;
+use Phalcon\Di;
 
 
 class Redirect extends Model
@@ -39,5 +41,14 @@ class Redirect extends Model
         $this->useragent = $_SERVER['HTTP_USER_AGENT'];
 
         $this->save();
+    }
+
+    public static function getLastVisit()
+    {
+        $userId = User::getCurrentUseId();
+        $sql = "SELECT a.id, a.date, b.name, b.user_id FROM qrcode.redirect AS a INNER JOIN dynamic_code AS b ON a.dynamic_code_id = b.id WHERE b.user_id = $userId ORDER BY a.date desc LIMIT 1";
+        $result = $count = Di::getDefault()->getShared('db')->fetchOne($sql);
+
+        return $result;
     }
 }
