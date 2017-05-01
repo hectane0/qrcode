@@ -10,7 +10,7 @@
     </div>
 
     <div>
-        <img src="http://qrcode.dev:8080/panel/show/{{ code.id }}">
+        <img src="/panel/show/{{ code.id }}">
     </div>
 
     <form action="{{ url(['for': 'download']) }}">
@@ -18,4 +18,3 @@
         <input id="download" type="submit" value="Pobierz">
     </form>
 {% endblock %}
-
