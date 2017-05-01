@@ -17,6 +17,7 @@ class Redirect extends Model
     public $useragent;
     public $platform;
     public $browser;
+    public $ip;
 
 
     public function getSource()
@@ -45,6 +46,16 @@ class Redirect extends Model
         $ua = parse_user_agent();
         $this->platform = $ua['platform'];
         $this->browser = $ua['browser'];
+
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
+            $ip = $_SERVER['REMOTE_ADDR'];
+        }
+
+        $this->ip = $ip;
 
         $this->save();
     }
