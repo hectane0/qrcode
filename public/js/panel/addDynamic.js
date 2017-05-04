@@ -5,7 +5,7 @@ $(document).ready(function(){
         $("#suggests").hide();
 
         if(!url) {
-            alert("empty");
+            alert("Wartość nie może być pusta");
             return;
         }
 

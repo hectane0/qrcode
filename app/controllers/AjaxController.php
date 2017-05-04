@@ -1,6 +1,7 @@
 <?php
 
 use QrCode\Models\DynamicCode\DynamicCode;
+use QrCode\Models\NameTry\NameTryHelper;
 use QrCode\Models\QR\QR;
 
 class AjaxController extends ControllerBase
@@ -43,9 +44,11 @@ class AjaxController extends ControllerBase
             echo json_encode($data);die;
         }
 
+        $suggestions = NameTryHelper::findSuggestions($url);
+
         $data[0] = false;
         $data[1] = "Ścieżka jest zajęta!";
-        $data[2] = ['path1', 'path2', 'path3'];
+        $data[2] = $suggestions;
 
         echo json_encode($data);
     }
