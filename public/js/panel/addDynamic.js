@@ -21,12 +21,11 @@ $(document).ready(function(){
             dataType: 'json',
             success: function(data) {
                 $("#occupied-info").html(data[1]);
+                $("#suggestions").html("");
                 $.each(data[2], function (index, value) {
                     $("#suggestions").append("<a class='suggestion' style='cursor: pointer'>"+value+"</a>");
                     $("#suggests").show();
                 })
-
-
             }
         });
 

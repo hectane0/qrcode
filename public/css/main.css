@@ -119,3 +119,32 @@ ul.left-menu {
 .suggestion {
     padding-left: 5px;
 }
+
+.form-container {
+
+}
+
+.form-fieldset {
+    padding-bottom: 12px;
+}
+
+.form-label {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.form-row {
+    display: block;
+}
+
+.form-field {
+
+}
+
+.form-error {
+    color: red;
+}
+
+.form-description {
+    padding-bottom: 15px;
+}

@@ -7,21 +7,33 @@
 
     <div>
         <form id="static-qr-form" method="post">
-            <fieldset>
-                <label for="text">Tekst:</label>
-                {{ qr.render("text", {"class": "", "placeholder": "Tekst"}) }}
+            <fieldset class="form-fieldset">
+
+                <div class="form-row">
+                    <label class="form-label" for="text">Tekst:</label>
+                </div>
+
+
+                {{ qr.render("text", {"class": "form-field", "placeholder": ""}) }}
+
                 {% for message in qr.getMessagesFor("text") %}
-                    <div class="error">{{ message }}</div>
+                    <div class="form-error">{{ message }}</div>
                 {% endfor %}
             </fieldset>
 
-            <fieldset>
-                <label for="fill">Kolor wypełnienia:</label>
+            <fieldset class="form-fieldset">
+                <div class="form-row">
+                    <label class="form-label" for="fill">Kolor wypełnienia:</label>
+                </div>
+
                 <input type="color" name="fill" title="fill" value="#000000">
             </fieldset>
 
-            <fieldset>
-                <label for="background">Kolor tła:</label>
+            <fieldset class="form-fieldset">
+                <div class="form-row">
+                    <label class="form-label" for="background">Kolor tła:</label>
+                </div>
+                
                 <input type="color" name="background" title="background" value="#ffffff">
             </fieldset>
 
